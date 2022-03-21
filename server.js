@@ -10,32 +10,27 @@ app.set('view engine', 'ejs');
 // use res.render to load up an ejs view file
 
 // index page
-app.get('/', async function (req, res) {
-    var dados = await api.foto("bruno-suntak")
-    //console.log(dados.data.login)
 
-    res.render('pages/index', {
-        dados: dados
-    });
+/**
+ * Rota para consultar perfil no github
+ */
+app.get('/:username', async function (req, res) {
+
+    var username = req.params.username;
+
+    try {
+        var dados = await api.foto(username) 
+        } catch (error) {
+            //console.log(error)
+        }
+
+        // res.json (dados)
+    
+        res.render('pages/index', {
+            dados: dados
+        });
 });
 
-// about page
-app.get('/marcelo', async function (req, res) {
-    var dados = await api.foto("marcelobem")
-    //console.log(dados.data.login)
-
-    res.render('pages/index', {
-        dados: dados
-    });
-});
-app.get('/luis', async function (req, res) {
-    var dados = await api.foto("LuisGustavoSilva")
-    //console.log(dados.data.login)
-
-    res.render('pages/index', {
-        dados: dados
-    });
-});
 
 app.listen(8080);
 console.log('8080 is the magic port');

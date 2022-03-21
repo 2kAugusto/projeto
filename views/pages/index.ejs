@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <%- include('../partials/head'); %>
 </head>
@@ -11,9 +11,11 @@
 
 <main>
     <div class="jumbotron">
-        <h1>user: <%= dados.data.login %></h1>
+            <% if (dados.erro == true && dados.erroapi == true) { %><h1> Limite excedido da API </h1>  <% } %>
+            <% if (dados.erro == true && dados.erroapi == false) { %><h1> Usuario nao encontrado </h1>  <% } %>
+            <% if (dados.data) { %> <h1>user: <%= dados.data.login %></h1> <% } %>
         <div>
-            <img src="<%= dados.data.avatar_url %>" alt="">
+            <% if (dados.data) { %> <img src="<%= dados.data.avatar_url %>" alt=""> <% } %>
         </div>
     </div>
 </main>
