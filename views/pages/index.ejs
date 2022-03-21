@@ -12,7 +12,7 @@
 <main>
     <div class="jumbotron">
             <% if (dados.erro == true && dados.erroapi == true) { %><h1> Limite excedido da API </h1>  <% } %>
-            <% if (dados.erro == true && dados.erroapi == false) { %><h1> Usuario nao encontrado </h1>  <% } %>
+            <% if (dados.erro == true && dados.erroapi == false) { %><h1> usuario inexistente </h1>  <% } %>
             <% if (dados.data) { %> <h1>user: <%= dados.data.login %></h1> <% } %>
         <div>
             <% if (dados.data) { %> <img src="<%= dados.data.avatar_url %>" alt=""> <% } %>
