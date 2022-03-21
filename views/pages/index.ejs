@@ -11,7 +11,7 @@
 
 <main>
     <div class="jumbotron">
-            <% if (dados.erro == true && dados.erroapi == true) { %><h1> Limite excedido da API </h1>  <% } %>
+            <% if (dados.erro == true && dados.erroapi == true) { %><h1> API fora do ar </h1>  <% } %>
             <% if (dados.erro == true && dados.erroapi == false) { %><h1> Usuario nao encontrado </h1>  <% } %>
             <% if (dados.data) { %> <h1>user: <%= dados.data.login %></h1> <% } %>
         <div>
